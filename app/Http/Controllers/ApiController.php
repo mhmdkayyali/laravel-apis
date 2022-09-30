@@ -33,9 +33,10 @@ class ApiController extends Controller
     function stringToBinary($stringbinary) {
         $split = explode(".", $stringbinary);
         $integer = preg_replace('/[^0-9]/', '', $split); 
-        // for ($i = 0; $i < count($stringbinary); i++) {
-        //     if ($stringbinary[$i] == )
-        // }
+        for ($i = 0; $i < count($integer); i++) {
+            $integer[$i] = decbin($integer[$i]);
+        }
+        // decbin($integer);
         return $integer;
     }
 
