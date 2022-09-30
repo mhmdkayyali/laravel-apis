@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    function sortString() {
-        $string = "eA2a1E";
+    function sortString($string) {
         // copying the numbers inside $string to another string using regex (found searching on google)
         $int = preg_replace('/[^0-9]/', '', $string);
         // copying the letters inside $string to another string using regex (found searching on google)
@@ -23,6 +22,11 @@ class ApiController extends Controller
                 $lower_case_string[$i] = strtoupper($lower_case_string[$i]);
             }
         }
-        return $lower_case_string;
+        $string = $lower_case_string;
+        sort($int);
+        $int_array_to_string = implode($int);
+        $string = implode($lower_case_string);
+        $final_result = $string . $int_array_to_string;
+        return $final_result;
     }
 }
