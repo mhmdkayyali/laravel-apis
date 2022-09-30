@@ -29,4 +29,16 @@ class ApiController extends Controller
         $final_result = $string . $int_array_to_string;
         return $final_result;
     }
+
+    function stringToBinary($stringbinary) {
+        $split = explode(".", $stringbinary);
+        $integer = preg_replace('/[^0-9]/', '', $split); 
+        // for ($i = 0; $i < count($stringbinary); i++) {
+        //     if ($stringbinary[$i] == )
+        // }
+        return $integer;
+    }
+
+
+
 }
